@@ -13,8 +13,13 @@ We will be testing the enigma machine on a Quote by Alan Turing.
 
 
 Plain Text: - `THOSEWHOCANIMAGINEANYTHINGCANCREATETHEIMPOSSIBLE`
+
 Rotors: - `I II III`
+
 Rotors Start: - `BAK`
+
 Refector: - `B`
+
 Plug Board: - `WV NO DM RS GH PL YE TJ IB KQ AZ`
+
 Cipher Text: - `NGKWAXUFKDULKCQVQDYUTMNBHPASWUYXTFUMCWAUGXMZDNBT`

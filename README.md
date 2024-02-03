@@ -4,7 +4,7 @@ This is a github repository is a try to implement Enigma machine in python.
 
 ## Features
 - Plugbord implemented
-- Rotor implemented (Rotation Logic remaining)
+- Rotor implemented
 - Reflector implemented
 
 ## Testing

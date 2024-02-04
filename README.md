@@ -6,6 +6,7 @@ This is a github repository is a try to implement Enigma machine in python.
 - Plugbord implemented
 - Rotor implemented
 - Reflector implemented
+- Implement Enigma Class
 
 ## Testing
 
@@ -20,3 +21,8 @@ Rotors Start: - `BAK`<br>
 Refector: - `B`<br>
 Plug Board: - `WV NO DM RS GH PL YE TJ IB KQ AZ`<br>
 Cipher Text: - `NGKWAXUFKDULKCQVQDYUTMNBHPASWUYXTFUMCWAUGXMZDNBT`
+
+
+## Reference
+
+[This](https://piotte13.github.io/enigma-cipher/) page was used to understand enigma logic.

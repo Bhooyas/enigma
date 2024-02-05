@@ -7,6 +7,7 @@ This is a github repository is a try to implement Enigma machine in python.
 - Rotor implemented
 - Reflector implemented
 - Implement enigma class
+- Generate random enigma
 
 ## Testing
 

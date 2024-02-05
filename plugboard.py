@@ -8,3 +8,6 @@ class Plugboard:
 
 	def encrypt(self, letter):
 		return self.connection.get(letter, letter)
+
+	def __repr__(self):
+		return " ".join(k+v for k,v in list(self.connection.items())[::2])

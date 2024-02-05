@@ -6,7 +6,7 @@ This is a github repository is a try to implement Enigma machine in python.
 - Plugbord implemented
 - Rotor implemented
 - Reflector implemented
-- Implement Enigma Class
+- Implement enigma class
 
 ## Testing
 

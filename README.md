@@ -8,6 +8,7 @@ This is a github repository is a try to implement Enigma machine in python.
 - Reflector implemented
 - Implement enigma class
 - Generate random enigma
+- Added argparser in main.py
 
 ## Testing
 

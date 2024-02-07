@@ -57,7 +57,7 @@ class Enigma:
 		return cipher
 
 	def __repr__(self):
-		return f"ROTORS: -     {self.r3} {self.r2} {self.r1}\nREFLECTORS: - {self.ref}\nPLUGBOARD: -  {self.pb}\nKEY: -        {self.get_key()}"
+		return f"ROTORS: -     \033[1m{self.r3} {self.r2} {self.r1}\033[0m\nREFLECTORS: - \033[1m{self.ref}\033[0m\nPLUGBOARD: -  \033[1m{self.pb}\033[0m\nKEY: -        \033[1m{self.get_key()}\033[0m"
 
 def get_random(options, n):
 	selection = set()
@@ -65,7 +65,7 @@ def get_random(options, n):
 		selection	.add(random.choice(options))
 	return list(selection)
 
-def generate_enigma():
+def generate_random_enigma():
 	plugboard_connections = get_random("ABCDEFGHIJKLMNOPQRSTUVWXYZ", 10)
 	plugboard_connections = ["".join(pair) for pair in zip(plugboard_connections[::2], plugboard_connections[1::2])]
 	plugboard = Plugboard(connection=plugboard_connections)

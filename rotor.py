@@ -24,3 +24,5 @@ ROTOR_II = Rotor(connection="AJDKSIRUXBLHWTMCQGZNPYFVOE", notch="E", name="ROTOR
 ROTOR_III = Rotor(connection="BDFHJLCPRTXVZNYEIWGAKMUSQO", notch="V", name="ROTOR_III")
 ROTOR_IV = Rotor(connection="ESOVPZJAYQUIRHXLNFTGKDCMWB", notch="J", name="ROTOR_IV")
 ROTOR_V = Rotor(connection="VZBRGITYUPSDNHLXAWMJQOFECK", notch="Z", name="ROTOR_V")
+
+ROTORS_DICT = {"I":ROTOR_I, "II": ROTOR_II, "III": ROTOR_III, "IV": ROTOR_IV, "V": ROTOR_V}

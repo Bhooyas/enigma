@@ -9,6 +9,7 @@ This is a github repository is a try to implement Enigma machine in python.
 - Implement enigma class
 - Generate random enigma
 - Added argparser in main.py
+- Added dockerfile
 
 ## Testing
 
@@ -23,7 +24,6 @@ Rotors Start: - `BAK`<br>
 Refector: - `B`<br>
 Plug Board: - `WV NO DM RS GH PL YE TJ IB KQ AZ`<br>
 Cipher Text: - `NGKWAXUFKDULKCQVQDYUTMNBHPASWUYXTFUMCWAUGXMZDNBT`
-
 
 ## Reference
 

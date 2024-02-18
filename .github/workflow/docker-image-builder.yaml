@@ -1,0 +1,50 @@
+name: Engima Image Builder
+
+on:
+  push:
+    branches: [ "main" ]
+
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  REPOSITORY: "bhooyas"
+  IMAGE: "enigma"
+  MESSAGE: "THOSEWHOCANIMAGINEANYTHINGCANCREATETHEIMPOSSIBLE"
+  CIPHER: "NGKWAXUFKDULKCQVQDYUTMNBHPASWUYXTFUMCWAUGXMZDNBT"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Get docket tag
+      id: meta
+      run: |
+        DOCKER_TAG=$(curl -s https://registry.hub.docker.com/v2/repositories/$REPOSITORY/$IMAGE/tags | jq -r '.results[1].name')
+        TAG="v$((${DOCKER_TAG//[!0-9]/} + 1))"
+        echo "::set-output name=docker_tag::$TAG"
+
+    - name: Build and tag docker
+      run: |
+        docker build -t $REPOSITORY/$IMAGE:${{ steps.meta.outputs.docker_tag }} .
+        docker tag $REPOSITORY/$IMAGE:${{ steps.meta.outputs.docker_tag }} $REPOSITORY/$IMAGE:latest
+
+    - name: Test docker image
+      id: test
+      run: |
+        ENCODED=$(docker run --rm $REPOSITORY/$IMAGE:${{ steps.meta.outputs.docker_tag }} -s -r1 I -r2 II -r3 III -pb "WV NO DM RS GH PL YE TJ IB KQ AZ" -ref B -k "BAK" $MESSAGE)
+        if [ "$ENCODED" = "$CIPHER" ]; then
+          echo "Working"
+        else
+          echo "Not working. Encrypted message $ENCODED"
+          exit 1
+        fi
+
+    - name: Push docker image
+      run: |
+        echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login --username "${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
+        docker push  $REPOSITORY/$IMAGE:${{ steps.meta.outputs.docker_tag }}
+        docker push $REPOSITORY/$IMAGE:latest

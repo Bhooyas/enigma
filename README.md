@@ -10,6 +10,7 @@ This is a github repository is a try to implement Enigma machine in python.
 - Generate random enigma
 - Added argparser in main.py
 - Added dockerfile
+- Added app.py which is Api for enigma
 
 ## Testing
 

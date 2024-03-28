@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Enigma</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='neumorph-full.min.css') }}"> <!-- https://chemaalfonso.github.io/neumorph.scss/ -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div class="container mt-3">
+		<form class="col-12 justify-content-center flex-wrap rounded" method="POST" action="/set_enigma">
+			<legend>Enigma Setting</legend>
+			<div class="np-form-group mt-3">
+				<label for="R1">Rotor 1</label>
+				<select name="R1" id="np-option" class="np-form-element mb-3">
+					<option value="I">I</option>
+					<option value="II">II</option>
+					<option value="III">III</option>
+					<option value="IV">IV</option>
+					<option value="V">V</option>
+				</select>
+				<label for="R2">Rotor 2</label>
+				<select name="R2" id="np-option" class="np-form-element mb-3">
+					<option value="I">I</option>
+					<option value="II">II</option>
+					<option value="III">III</option>
+					<option value="IV">IV</option>
+					<option value="V">V</option>
+				</select>
+				<label for="R3">Rotor 3</label>
+				<select name="R3" id="np-option" class="np-form-element mb-3">
+					<option value="I">I</option>
+					<option value="II">II</option>
+					<option value="III">III</option>
+					<option value="IV">IV</option>
+					<option value="V">V</option>
+				</select>
+				<label for="Ref">Reflector</label>
+				<select name="Ref" id="np-option" class="np-form-element mb-3" required>
+					<option value="A">A</option>
+					<option value="B">B</option>
+					<option value="C">C</option>
+				</select>
+				<label for="Pb">Plugboard Settings</label>
+				<input type="text" name="Pb" class="np-form-element mb-3" placeholder="AB CD">
+				<label for="Key">Key</label>
+				<input type="text" name="Key" class="np-form-element mb-3" placeholder="AAA">
+				<button class="np-btn mt-3">Submit</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

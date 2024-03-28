@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Enigma</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='neumorph-full.min.css') }}"> <!-- https://chemaalfonso.github.io/neumorph.scss/ -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div class="container mt-3">
+		<form class="col-12 justify-content-center flex-wrap rounded" method="POST" action="/cipher">
+			<legend>Enigma Encryption</legend>
+			<div class="np-form-group mt-3">
+				<label for="message">Message </label>
+				<input type="text" name="message" class="np-form-element mb-3" placeholder="ABC" required="" value="{{ message }}">
+				<label for="cipher">Encrypted</label>
+				<input type="text" name="cipher" class="np-form-element mb-3" placeholder="{{ cipher_text }}" disabled>
+				<button class="np-btn mt-3">Submit</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>

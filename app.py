@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template, redirect, url_for
 from enigma import *
 
 app = Flask(__name__)
@@ -9,7 +9,7 @@ enigma = None
 def set_enigma():
 	global enigma
 	args = request.form
-	keys = ["R1", "R2", "R3", "Ref", "Pb"]
+	keys = ["R1", "R2", "R3","Ref", "Pb"]
 	for i in keys:
 		if i in args:
 			pass
@@ -29,18 +29,30 @@ def set_enigma():
 		return {"error": "Incorrect data passed"}
 
 	if args.get("Key"):
+		print(args.get("Key"))
 		enigma.set_key(args.get("Key"))
 
 	print(enigma)
-	return {"data":str(enigma)}, 200
+	# return {"data":str(enigma)}, 200
+	return redirect(url_for("index"))
 
 @app.route("/cipher", methods=["POST"])
-def create():
+def cipher():
 	global enigma
 	if request.form.get("message"):
 		text = enigma.encrypt(request.form.get("message"))
-		return text
+		# return text
+		return render_template("cipher.html", cipher_text=text, message=request.form.get("message"))
 	return {"error" "Message not found"}
+
+@app.route("/", methods=["GET"])
+def index():
+	global enigma
+	print(enigma)
+	if enigma:
+		# return {"data":"Enigma working"}, 200
+		return render_template("cipher.html")
+	return render_template("index.html")
 
 if __name__ == '__main__':
 	app.run(debug=True, host="0.0.0.0")
